@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import iziToast from 'izitoast';
+import errorIcon from '../img/error-icon.svg';
 
 // Global variables
 const refs = {
@@ -15,7 +16,7 @@ const toastBaseOpts = {
   message: 'Please choose a date in the future',
   position: 'topRight',
   progressBar: 'false',
-  iconUrl: '/img/error-icon.svg',
+  iconUrl: errorIcon,
 };
 
 refs.btnEl.disabled = true;
