@@ -15,7 +15,7 @@ const toastBaseOpts = {
   message: 'Please choose a date in the future',
   position: 'topRight',
   progressBar: 'false',
-  iconUrl: './img/error-icon.svg',
+  iconUrl: '/img/error-icon.svg',
 };
 
 refs.btnEl.disabled = true;
