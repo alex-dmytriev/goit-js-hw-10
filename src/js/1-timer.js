@@ -1,7 +1,5 @@
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
 
 // Global variables
 const refs = {
@@ -13,15 +11,11 @@ const refs = {
   secondsEl: document.querySelector('[data-seconds]'),
 };
 
-const iziToastOptions = {
+const toastBaseOpts = {
   message: 'Please choose a date in the future',
-  backgroundColor: '#EF4040',
-  messageColor: '#fff',
-  messageSize: '16px',
-  messgeLineHeight: '24px',
   position: 'topRight',
+  progressBar: 'false',
   iconUrl: './img/error-icon.svg',
-  timeout: 2000,
 };
 
 refs.btnEl.disabled = true;
@@ -36,7 +30,7 @@ const flatpickrOptions = {
 
   onClose(selectedDates) {
     if (selectedDates[0] < Date.now()) {
-      iziToast.show(iziToastOptions);
+      iziToast.error(toastBaseOpts);
       refs.btnEl.disabled = true;
     } else {
       refs.btnEl.disabled = false;
