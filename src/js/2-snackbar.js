@@ -26,26 +26,26 @@ function onSubmit(e) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (fulfilled) {
-        resolve();
+        resolve(`Fulfilled in ${delay}ms`);
       } else if (rejected) {
-        reject();
+        reject(`Rejected in ${delay}ms`);
       }
     }, delay);
   });
 
   promise
-    .then(data => {
+    .then(response => {
       iziToast.success({
         ...toastBaseOpts,
         title: '✅',
-        message: `Fulfilled in ${delay}ms`,
+        message: response,
       });
     })
-    .catch(err => {
+    .catch(errMessage => {
       iziToast.error({
         ...toastBaseOpts,
         title: '❌',
-        message: `Rejected in ${delay}ms`,
+        message: errMessage,
       });
     });
 }
